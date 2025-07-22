@@ -86,7 +86,7 @@ void StgStageController::Initialize(ref_count_ptr<StgStageStartData> startData)
 	//リプレイ関連(スクリプト初期化前)
 	if (!infoStage_->IsReplay()) {
 		//乱数
-		int randSeed = infoStage_->GetMersenneTwister()->SeedRNG();
+		int randSeed = infoStage_->GetMersenneTwister()->GetSeed();
 		replayStageData->SetRandSeed(randSeed);
 
 		//ステージ情報

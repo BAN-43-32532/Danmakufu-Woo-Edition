@@ -1,4 +1,35 @@
 # Touhou Danmakufu ph3.5 ~ Woo Edition
+
+## About This Fork
+
+This project is a fork of [Danmakufu-Woo-Edition](https://github.com/WishMakers0/Danmakufu-Woo-Edition), which itself is based on [Danmakufu-ph3](https://github.com/james7132/Danmakufu-ph3).
+
+Danmakufu-Woo-Edition replaced Danmakufu-ph3's custom Mersenne Twister RNG implementation with `std::mt19937`.  
+However, this change introduced differences in runtime behavior and broke compatibility with replays.
+
+To restore full compatibility, this fork reverts the RNG implementation back to the original. Specifically:
+
+- The files `source/GcLib/gstd/MersenneTwister.cpp/hpp` were completely rolled back.
+- An API name in `source/TouhouDanmakufu/Common/StgStageController.cpp` was also reverted.
+
+### Build Tips
+
+If you're using a Chinese or non-UTF-8 default locale system, you may run into encoding-related build errors.  
+You can try running the following PowerShell command in the project directory to convert all `.cpp` and `.h` files to **UTF-8 with BOM**:
+
+```powershell
+Get-ChildItem -Recurse -Include *.cpp, *.h | ForEach-Object {
+  $content = Get-Content $_.FullName -Raw
+  [System.IO.File]::WriteAllText($_.FullName, $content, [System.Text.Encoding]::UTF8)
+}
+```
+
+This should resolve any issues caused by illegal escape sequences or corrupted multibyte characters.
+
+The original project includes a dependency on `afxres.h`, which is part of the **Microsoft Foundation Classes (MFC)**. You may install the MFC component via the Visual Studio Installer.
+
+### == Below is the original README content ==
+
 All hail our lord and savior Mima and our queen, Kogasa's Woo. This version of Danmakufu is made for the purposes of both optimization and fixing some issues with the original source that mkm dropped. (See James7132's repo for a link to the original download) <b>This version of Danmakufu is completely backwards compatible with ph3. If something doesn't work as expected, please let me know.</b> My Discord tag is WishMakers#0385 if you need to reach me.
 
 ## Changes in Master Branch
