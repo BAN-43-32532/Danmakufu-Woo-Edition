@@ -16,7 +16,8 @@ To restore full compatibility, this fork reverts the RNG implementation back to 
 
 This fork should be compatible with the executable built from [Danmakufu-ph3 source](https://github.com/james7132/Danmakufu-ph3), with file loading issues patched using the zlib solution from [Danmakufu-Woo-Edition](https://github.com/WishMakers0/Danmakufu-Woo-Edition).  
 **However**, the behavior of this fork is still not fully consistent with [the official Danmakufu-ph3 release](https://touhougc.web.fc2.com/products/th_dnh_ph3.html), which, unfortunately, most Danmakufu fangames are based on. Specifically, desync caused by RNG can occur unpredictably, and even when no desync happens, the score may occasionally show minor discrepancies, which is likely due to floating error.
-If you intend to create replays that work across both this fork and the official release, please do so at your own risk.
+If you intend to create replays that work across both this fork and the official release, please do so at your own risk.  
+You are welcome to build this fork yourself. It would be so great if your build achieves better compatibility.
 
 ### Build Tips
 
