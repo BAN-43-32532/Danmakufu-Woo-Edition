@@ -1,7 +1,5 @@
 # Touhou Danmakufu ph3.5 ~ Woo Edition
 
-**Note:** Replay compatibility has not been fully verified. Please use it at your own risk.
-
 ## About This Fork
 
 This project is a fork of [Danmakufu-Woo-Edition](https://github.com/WishMakers0/Danmakufu-Woo-Edition), which itself is based on [Danmakufu-ph3](https://github.com/james7132/Danmakufu-ph3).
@@ -13,6 +11,12 @@ To restore full compatibility, this fork reverts the RNG implementation back to 
 
 - The files `source/GcLib/gstd/MersenneTwister.cpp/hpp` were completely rolled back.
 - An API name in `source/TouhouDanmakufu/Common/StgStageController.cpp` was also reverted.
+
+### Notice
+
+This fork should be compatible with the executable built from [Danmakufu-ph3 source](https://github.com/james7132/Danmakufu-ph3), with file loading issues patched using the zlib solution from [Danmakufu-Woo-Edition](https://github.com/WishMakers0/Danmakufu-Woo-Edition).  
+**However**, the behavior of this fork is still not fully consistent with [the official Danmakufu-ph3 release](https://touhougc.web.fc2.com/products/th_dnh_ph3.html), which, unfortunately, most Danmakufu fangames are based on. Specifically, desync caused by RNG can occur unpredictably, and even when no desync happens, the score may occasionally show minor discrepancies, which is likely due to floating error.
+If you intend to create replays that work across both this fork and the official release, please do so at your own risk.
 
 ### Build Tips
 
